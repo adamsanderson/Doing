@@ -9,7 +9,11 @@
   	<link rel="stylesheet" href="css/doing.css" type="text/css" media="screen" charset="utf-8">
   </head>
   <body>
-    Doing!
+    
+    <h1 data-bind='text: activity'></h1>
+    <p>What are you going to do?</p>  
+    <input data-bind='value: activity keyup'/>
+    
   </body>
   
   <!-- Libraries -->
@@ -17,4 +21,9 @@
   
   <!-- Application Code -->
   <script src="js/doing.js" type="text/javascript" charset="utf-8"></script>
+  <script>
+    Ivy.bindDom(document.body, {
+      activity: Ivy.attr("Build Doing")
+    });
+  </script>
 </html>
