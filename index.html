@@ -10,9 +10,22 @@
   </head>
   <body>
     
-    <h1 data-bind='text: activity'></h1>
-    <p>What are you going to do?</p>  
-    <input data-bind='value: activity keyup'/>
+    <div>
+    
+      <div style='background: #ffe'>
+        <h1>Doing</h1>  
+        <input data-bind='value: activity keyup'/>
+      </div>
+    
+      <div style='background: #fef'>
+        <h2>Notes</h2>
+      </div>
+    
+    </div>
+    
+    <div style='background: #eff'>
+      <h1>Done</h1>
+    </div>
     
   </body>
   
