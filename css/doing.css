@@ -22,3 +22,21 @@ body{
   left: 50%;  
   right: 0;
 }
+
+#current-activity > .timer {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+#notes > textarea {
+  width: 100%;
+}
+
+#past-activities > .activity-list {
+  width: 100%;
+}
+
+.activity-list col.duration {
+  width: 8em;
+}

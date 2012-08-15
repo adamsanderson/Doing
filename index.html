@@ -12,19 +12,35 @@
     
     <div id='doing-panel'>
     
-      <div>
+      <div id='current-activity'>
         <h1>Doing</h1>  
-        <input data-bind='value: activity keyup'/>
+        <form>
+          <input data-bind='value: activity keyup'/>
+          <input type='submit' value='Start'>
+        </form>
+        <div class='timer'>
+          00:00
+        </div>
       </div>
     
-      <div>
+      <div id='notes'>
         <h2>Notes</h2>
+        <textarea></textarea>
       </div>
     
     </div>
     
     <div id='done-panel'>
-      <h1>Done</h1>
+      <div id='past-activities'>
+        <h1>Done</h1>
+        <table class='activity-list'>
+          <col class='name'>
+          <col class='duration'>
+          <tr>
+            <td>Item One</td> <td>15m</td>
+          </tr>
+        </table>
+      </div>
     </div>
     
   </body>
