@@ -7,15 +7,16 @@
   	
   	<meta name="author" content="Adam Sanderson">
   	<link rel="stylesheet" href="css/doing.css" type="text/css" media="screen" charset="utf-8">
+  	<link rel="stylesheet" href="css/debug.css" type="text/css" media="screen" charset="utf-8">
   </head>
   <body>
     
-    <div id='doing-panel'>
+    <div id='doing-panel' data-bind='with: doingPanel'>
     
-      <div id='current-activity'>
+      <div id='current-activity' data-bind='with: activity'>
         <h1>Doing</h1>  
         <form>
-          <input data-bind='value: activity keyup'/>
+          <input data-bind='value: name'/>
           <input type='submit' value='Start'>
         </form>
         <div class='timer'>
@@ -23,14 +24,14 @@
         </div>
       </div>
     
-      <div id='notes'>
+      <div id='notes' data-bind='with: activity'>
         <h2>Notes</h2>
-        <textarea></textarea>
+        <textarea data-bind='value: notes'></textarea>
       </div>
     
     </div>
     
-    <div id='done-panel'>
+    <div id='done-panel' data-bind='with: donePanel'>
       <div id='past-activities'>
         <h1>Done</h1>
         <table class='activity-list'>
@@ -50,9 +51,4 @@
   
   <!-- Application Code -->
   <script src="js/doing.js" type="text/javascript" charset="utf-8"></script>
-  <script>
-    Ivy.bindDom(document.body, {
-      activity: Ivy.attr("Build Doing")
-    });
-  </script>
 </html>

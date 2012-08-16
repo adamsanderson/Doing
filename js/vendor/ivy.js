@@ -803,6 +803,7 @@ Ivy.bindElement = function(el, bindingRule){
       var bindError = Ivy.util.beget(err);
       bindError.message = [err.message, "\n\tWhile binding ",el.tagName," '", name, ": ", bindingRule.options.join(' '), ";'"].join('');
       bindError.element = el;
+      el.setAttribute("title", bindError.message);
       el.setAttribute("data-ivy-error", bindError.message);
       throw bindError;
     }
