@@ -13,3 +13,14 @@ function DoingView(currentActivity){
   this.currentActivity = Ivy.attr(currentActivity);
   this.doneActivities  = Ivy.array();
 }
+
+DoingView.prototype.start = function(activity){
+  var current = this.currentActivity.get();
+  
+  // set a random duration for now between 0s and 5h
+  var seconds = Math.random() * 5 * 60 * 60 * 1000;
+  current.duration.set(seconds);
+  
+  this.doneActivities.push(current);
+  this.currentActivity.set(new Activity());
+};

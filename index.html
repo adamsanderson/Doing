@@ -15,7 +15,7 @@
     
       <div id='current-activity'>
         <h1>Doing</h1>  
-        <form>
+        <form data-bind='on: submit ../start'>
           <input data-bind='value: name'/>
           <input type='submit' value='Start'>
         </form>
@@ -39,7 +39,7 @@
           <col class='duration'>
           <tbody data-bind='each: doneActivities'>
             <tr> 
-              <td data-bind='name'>Item One</td> <td data-bind='duration'>15m</td> 
+              <td data-bind='text: name'>Item One</td> <td data-bind='text: duration'>15m</td> 
             </tr>
           </tbody>
         </table>
