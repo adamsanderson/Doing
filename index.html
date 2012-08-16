@@ -11,9 +11,9 @@
   </head>
   <body>
     
-    <div id='doing-panel' data-bind='with: doingPanel'>
+    <div id='doing-panel' data-bind='with: currentActivity'>
     
-      <div id='current-activity' data-bind='with: activity'>
+      <div id='current-activity'>
         <h1>Doing</h1>  
         <form>
           <input data-bind='value: name'/>
@@ -24,22 +24,24 @@
         </div>
       </div>
     
-      <div id='notes' data-bind='with: activity'>
+      <div id='notes'>
         <h2>Notes</h2>
         <textarea data-bind='value: notes'></textarea>
       </div>
     
     </div>
     
-    <div id='done-panel' data-bind='with: donePanel'>
+    <div id='done-panel'>
       <div id='past-activities'>
         <h1>Done</h1>
         <table class='activity-list'>
           <col class='name'>
           <col class='duration'>
-          <tr>
-            <td>Item One</td> <td>15m</td>
-          </tr>
+          <tbody data-bind='each: doneActivities'>
+            <tr> 
+              <td data-bind='name'>Item One</td> <td data-bind='duration'>15m</td> 
+            </tr>
+          </tbody>
         </table>
       </div>
     </div>

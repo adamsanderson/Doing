@@ -1,5 +1,6 @@
 window.onload = function(){
-  Ivy.bindDom(document.body, new DoingView);
+  var initialActivity = new Activity("Start Doing!", "Take notes here.");
+  Ivy.bindDom(document.body, new DoingView(initialActivity));
 };
 
 function Activity(name, notes, duration){
@@ -8,11 +9,7 @@ function Activity(name, notes, duration){
   this.duration = Ivy.attr(duration || 0 );
 }
 
-function DoingView(){
-  this.doingPanel = new CurrentActivityView;
-  this.donePanel  = {}; // We will get to this next
-}
-
-function CurrentActivityView(){
-  this.activity = new Activity("Start Doing!", "Take notes here.");
+function DoingView(currentActivity){
+  this.currentActivity = Ivy.attr(currentActivity);
+  this.doneActivities  = Ivy.array();
 }
