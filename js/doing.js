@@ -24,3 +24,25 @@ DoingView.prototype.start = function(activity){
   this.doneActivities.push(current);
   this.currentActivity.set(new Activity());
 };
+
+Format = {};
+Format.duration = function(millis){
+  var hours, minutes, seconds;
+  
+  hours   = Math.floor(millis / 3600000);
+  millis  = millis % 3600000;
+  
+  minutes = Math.floor(millis / 60000);
+  millis  = millis % 60000;
+  
+  seconds = Math.floor(millis / 1000);
+  
+  var string = "";
+  if (hours > 0){
+    string += hours + ":";
+  }
+  string += (minutes < 10 ? "0"+minutes : minutes) + ":";
+  string += (seconds < 10 ? "0"+seconds : ""+seconds);
+  
+  return string;
+};
