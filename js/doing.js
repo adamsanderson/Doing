@@ -25,24 +25,29 @@ DoingView.prototype.start = function(activity){
   this.currentActivity.set(new Activity());
 };
 
-Format = {};
-Format.duration = function(millis){
-  var hours, minutes, seconds;
+function Duration(millis){
+  this._millis = millis;
   
-  hours   = Math.floor(millis / 3600000);
+  this.hours   = Math.floor(millis / 3600000);
   millis  = millis % 3600000;
   
-  minutes = Math.floor(millis / 60000);
+  this.minutes = Math.floor(millis / 60000);
   millis  = millis % 60000;
   
-  seconds = Math.floor(millis / 1000);
-  
-  var string = "";
-  if (hours > 0){
-    string += hours + ":";
+  this.seconds = Math.floor(millis / 1000);
+}
+
+Duration.prototype.toString = function(){
+  var string = "", 
+      h = this.hours, 
+      m = this.minutes, 
+      s = this.seconds;
+      
+  if (h){
+    string += h + ":";
   }
-  string += (minutes < 10 ? "0"+minutes : minutes) + ":";
-  string += (seconds < 10 ? "0"+seconds : ""+seconds);
+  string += (m < 10 ? "0"+m : m) + ":";
+  string += (s < 10 ? "0"+s : s);
   
   return string;
-};
+}
