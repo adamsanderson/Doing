@@ -40,3 +40,7 @@ body{
 .activity-list col.duration {
   width: 8em;
 }
+
+.activity-list td.duration {
+  text-align: right;
+}
